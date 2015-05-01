@@ -23,6 +23,9 @@ public class CameraControllerA : MonoBehaviour {
 
 		expandTarget(Input.GetAxis("Mouse ScrollWheel"));
 
+		rotateAroundTargetByYaxis(Input.GetAxis("Horizontal"));
+		rotateAroundTargetByXaxis (Input.GetAxis("Vertical"));
+
 		/**float dx = Input.GetAxis ("Horizontal");
 		float dy = Input.GetAxis ("Vertical");
 		Debug.Log (dx + " " + dy);
@@ -44,6 +47,15 @@ public class CameraControllerA : MonoBehaviour {
 		}
 
 		return;
+	}
+
+	void rotateAroundTargetByYaxis(float ratio){
+		this.transform.RotateAround (target.transform.position,Vector3.up,ratio);
+
+	}
+
+	void rotateAroundTargetByXaxis(float ratio){
+		this.transform.RotateAround (target.transform.position, this.transform.right, ratio);
 	}
 
 }
